@@ -1,0 +1,16 @@
+﻿<Window x:Class="XMLTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XMLTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="287.029" Width="455.439">
+    <Grid>
+        <Button x:Name="oldFileBtn" Content="旧文件" HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top" Width="75" Click="oldFileBtn_Click"/>
+        <Button x:Name="newFileBtn" Content="新文件" HorizontalAlignment="Left" Margin="87,106,0,0" VerticalAlignment="Top" Width="75" Click="newFileBtn_Click"/>
+        <TextBox x:Name="oldFilePath" HorizontalAlignment="Left" Height="20" Margin="185,66,0,0" TextWrapping="Wrap" Text="旧文件路径" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
+        <TextBox x:Name="newFilePath" HorizontalAlignment="Left" Height="20" Margin="185,106,0,0" TextWrapping="Wrap" Text="新文件路径" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
+
+    </Grid>
+</Window>
