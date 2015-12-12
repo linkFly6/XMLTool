@@ -8,10 +8,10 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" Margin="107,11,0,0" Name="oldXPath" TextChanged="oldXPath_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" Margin="107,11,0,0" Name="oldXPath" TextChanged="oldXPath_TextChanged" MouseDoubleClick="oldXPath_MouseDoubleClick"/>
         <Label Content="原XML的xPath:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="25" Width="94"/>
         <Label Content="新XML的xPath:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,71,0,0" Height="25" Width="94"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" Margin="107,71,0,0" Name="newXPath" TextChanged="newXPath_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="345" Margin="107,71,0,0" Name="newXPath" TextChanged="newXPath_TextChanged" MouseDoubleClick="newXPath_MouseDoubleClick"/>
         <Button Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="163,137,0,0" Height="19" Name="OK" Click="OK_Click"/>
         <Button Content="关闭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="256,137,0,0" Height="19" Name="Cancel" Click="Cancel_Click"/>
         <Label Content="规则:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0" Height="25" Width="94"/>

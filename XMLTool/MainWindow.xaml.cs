@@ -282,5 +282,15 @@ namespace XMLTool
             errorMsgs.Clear();
             this.listViewRules.Items.Refresh();
         }
+
+        private void oldFilePath_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            oldFileBtn_Click(sender, e);
+        }
+
+        private void newFilePath_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            newFileBtn_Click(sender, e);
+        }
     }
 }

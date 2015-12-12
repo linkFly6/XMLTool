@@ -30,8 +30,8 @@
         <GroupBox Header="XML文件" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="92" Width="398"/>
         <Button x:Name="oldFileBtn" Content="旧文件" HorizontalAlignment="Left" Margin="25,36,0,0" VerticalAlignment="Top" Width="75" Click="oldFileBtn_Click" RenderTransformOrigin="-0.573,-1.607" Height="19"/>
         <Button x:Name="newFileBtn" Content="新文件" HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="75" Click="newFileBtn_Click" Height="19"/>
-        <TextBox x:Name="oldFilePath" HorizontalAlignment="Left" Height="20" Margin="114,35,0,0" TextWrapping="Wrap" Text="旧文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False"/>
-        <TextBox x:Name="newFilePath" HorizontalAlignment="Left" Height="20" Margin="114,60,0,0" TextWrapping="Wrap" Text="新文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False"/>
+        <TextBox x:Name="oldFilePath" HorizontalAlignment="Left" Height="20" Margin="114,35,0,0" TextWrapping="Wrap" Text="旧文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False" MouseDoubleClick="oldFilePath_MouseDoubleClick"/>
+        <TextBox x:Name="newFilePath" HorizontalAlignment="Left" Height="20" Margin="114,60,0,0" TextWrapping="Wrap" Text="新文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False" MouseDoubleClick="newFilePath_MouseDoubleClick"/>
         <Button Content="添加规则" Name="addRule" HorizontalAlignment="Left" Margin="123,107,0,0" VerticalAlignment="Top" Width="75" Click="addRule_Click"/>
         <Button Content="保存" x:Name="Save" Margin="168,303,173,0" VerticalAlignment="Top" Click="Save_Click"/>
         <ListView HorizontalAlignment="Left" Width="398" Margin="10,133,0,77" Name="listViewRules" MouseDoubleClick="listViewRules_MouseDoubleClick">

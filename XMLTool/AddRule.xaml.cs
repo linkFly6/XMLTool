@@ -23,6 +23,11 @@ namespace XMLTool
     {
         private MainWindow Owner = null;
 
+        /// <summary>
+        /// 表示用户是否输入过：0表示用户没有输入过，2表示用户输入，1表示是系统更新的输入
+        /// </summary>
+        private int IsUserEdit = 0;
+
         public AddRule(MainWindow Owner, int openNewWindowCount)
         {
             InitializeComponent();
@@ -50,14 +55,20 @@ namespace XMLTool
 
         private void newXPath_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (IsUserEdit == 1 || this.newXPath.Text.Trim() == string.Empty)
+            {
+                IsUserEdit = 0;
+            }
+            else
+                IsUserEdit = 2;
             UpdateDescription();
         }
 
         private void oldXPath_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (this.newXPath.Text.Trim() == string.Empty)
+            if (IsUserEdit != 2)
             {
+                IsUserEdit = 1;
                 this.newXPath.Text = this.oldXPath.Text.Trim();
             }
             UpdateDescription();
@@ -84,6 +95,16 @@ namespace XMLTool
                 });
                 this.Close();
             }
+        }
+
+        private void oldXPath_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            oldXPath.SelectAll();
+        }
+
+        private void newXPath_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            newXPath.SelectAll();
         }
     }
 }
