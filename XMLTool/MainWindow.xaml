@@ -5,12 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XMLTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="287.029" Width="455.439">
-    <Grid>
-        <Button x:Name="oldFileBtn" Content="旧文件" HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top" Width="75" Click="oldFileBtn_Click"/>
-        <Button x:Name="newFileBtn" Content="新文件" HorizontalAlignment="Left" Margin="87,106,0,0" VerticalAlignment="Top" Width="75" Click="newFileBtn_Click"/>
-        <TextBox x:Name="oldFilePath" HorizontalAlignment="Left" Height="20" Margin="185,66,0,0" TextWrapping="Wrap" Text="旧文件路径" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
-        <TextBox x:Name="newFilePath" HorizontalAlignment="Left" Height="20" Margin="185,106,0,0" TextWrapping="Wrap" Text="新文件路径" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
-
+        Title="XML操作工具" Height="371.768" Width="427.871" Icon="Resource/logo.ico" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <local:LocalConvert x:Key="LocalConvert"/>
+        <!--x:key标记命名空间为：ListViewTextStyle-->
+        <Style TargetType="TextBlock" x:Key="ListViewTextStyle">
+            <!--<Setter Property="Foreground" Value="Blue"></Setter>-->
+            <Style.Triggers>
+                <!--当Status的值为1的时候，改变颜色为red-->
+                <DataTrigger Binding="{Binding Path=Status}" Value="1">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Status}" Value="2">
+                    <Setter Property="Foreground" Value="Blue"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="XML文件" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="92" Width="398"/>
+        <Button x:Name="oldFileBtn" Content="旧文件" HorizontalAlignment="Left" Margin="25,36,0,0" VerticalAlignment="Top" Width="75" Click="oldFileBtn_Click" RenderTransformOrigin="-0.573,-1.607" Height="19"/>
+        <Button x:Name="newFileBtn" Content="新文件" HorizontalAlignment="Left" Margin="25,60,0,0" VerticalAlignment="Top" Width="75" Click="newFileBtn_Click" Height="19"/>
+        <TextBox x:Name="oldFilePath" HorizontalAlignment="Left" Height="20" Margin="114,35,0,0" TextWrapping="Wrap" Text="旧文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False"/>
+        <TextBox x:Name="newFilePath" HorizontalAlignment="Left" Height="20" Margin="114,60,0,0" TextWrapping="Wrap" Text="新文件路径" VerticalAlignment="Top" Width="279" IsEnabled="False"/>
+        <Button Content="添加规则" Name="addRule" HorizontalAlignment="Left" Margin="123,107,0,0" VerticalAlignment="Top" Width="75" Click="addRule_Click"/>
+        <Button Content="保存" x:Name="Save" Margin="168,303,173,0" VerticalAlignment="Top" Click="Save_Click"/>
+        <ListView HorizontalAlignment="Left" Width="398" Margin="10,133,0,77" Name="listViewRules" MouseDoubleClick="listViewRules_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="原XML XPath" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--引用样式ListViewTextStyle-->
+                                <TextBlock Text="{Binding Path=OldXPath}" HorizontalAlignment="Left" Style="{StaticResource ListViewTextStyle}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="规则" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--引用枚举转换：LocalConvert-->
+                                <TextBlock Text="{Binding Path=RuleType,Converter={StaticResource LocalConvert}}" HorizontalAlignment="Center"  Style="{StaticResource ListViewTextStyle}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="新XML XPath" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=NewXPath}" HorizontalAlignment="Center" Style="{StaticResource ListViewTextStyle}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!--<GridViewColumn Header="规则" Width="auto"/>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="状态" Name="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,273,0,0" Width="408" HorizontalContentAlignment="Center" Foreground="#FFFF0B0B"/>
+        <Button Content="清空规则" x:Name="clearRules" HorizontalAlignment="Left" Margin="217,107,0,0" VerticalAlignment="Top" Width="75" Click="clearRules_Click"/>
     </Grid>
 </Window>
